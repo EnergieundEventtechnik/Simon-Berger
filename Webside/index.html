@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Simon Berger Energie und Eventtechnik</title>
+
+<style>
+:root{
+    --blue:#070f18;
+    --orange:#f39c12;
+}
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:var(--blue);
+    color:white;
+}
+
+/* NAV */
+.nav{
+    position:fixed;
+    width:100%;
+    padding:15px;
+    background:rgba(0,0,0,0.65);
+    text-align:center;
+    border-bottom:1px solid var(--orange);
+    z-index:1000;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.95)),
+    url("img/hero.jpg");
+    background-size:cover;
+}
+
+.hero img{width:160px;}
+
+.hero h1{
+    color:var(--orange);
+    font-size:48px;
+    margin:20px 0;
+}
+
+.hero p{
+    max-width:750px;
+    line-height:1.6;
+    opacity:0.9;
+}
+
+/* BUTTONS */
+.btn{
+    display:inline-block;
+    margin:12px;
+    padding:14px 22px;
+    background:var(--orange);
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* PAGES */
+.page{display:none;}
+.page.active{display:block;}
+
+.section{
+    padding:90px 20px;
+    max-width:1000px;
+    margin:auto;
+    text-align:center;
+}
+
+h2{color:var(--orange);}
+
+/* TEXT */
+.sub{
+    opacity:0.9;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+/* GALLERY SMALL */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:20px;
+}
+
+.gallery.service{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.gallery img{
+    width:100%;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* LIGHTBOX */
+#lightbox{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+}
+
+/* CONTACT */
+.contact{
+    margin-top:70px;
+    padding:40px;
+    border-top:2px solid var(--orange);
+}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+<strong style="color:#f39c12;">Simon Berger</strong> Energie und Eventtechnik
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<img src="logo.png">
+
+<h1>Simon Berger Energie und Eventtechnik</h1>
+
+<p>
+Du suchst einen DJ für deine nächste Party? Oder brauchst Hilfe bei der Montage deiner nächsten Solaranlage?  
+Dann bist du hier genau richtig!
+</p>
+
+<div>
+<a class="btn" onclick="openPage('event')">🎧 DJ & Eventtechnik</a>
+<a class="btn" onclick="openPage('service')">🔧 Montage & Service</a>
+</div>
+</div>
+
+<!-- EVENT PAGE -->
+<div id="event" class="page section">
+
+<img src="logo.png" style="width:140px;margin-bottom:15px;">
+
+<h2>DJ & Eventtechnik</h2>
+
+<p class="sub">
+Du suchst einen DJ für deine nächste Feier oder dein nächstes Event?  
+
+<br><br>
+
+<strong>Deine Musik. Deine Party. Dein DJ.</strong>
+
+<br><br>
+
+Ich richte mich ganz nach deinen Wünschen und sorge dafür, dass aus deinem Event eine unvergesslicher Abend wird.  
+Du sagst mir, wie du feiern willst – ich kümmere mich um den perfekten Sound und die richtige Stimmung.  
+<br><br>
+Meld dich gerne bei mir – ich freu mich auf deine Anfrage! 🎧🥳
+</p>
+
+<div class="gallery">
+<img src="img/event-1.jpg" onclick="openImg(this.src)">
+<img src="img/event-2.jpg" onclick="openImg(this.src)">
+<img src="img/event-3.jpg" onclick="openImg(this.src)">
+<img src="img/event-4.jpg" onclick="openImg(this.src)">
+</div>
+
+<div class="contact">
+<p>📍 Garmisch-Partenkirchen</p>
+<p>📞 +49 7176 809692</p>
+<p>📧 bergerenergieundeventtechnik@gmail.com</p>
+
+<a class="btn" href="tel:+497176809692">Anrufen</a>
+<a class="btn" href="https://wa.me/497176809692">WhatsApp</a>
+<a class="btn" href="mailto:bergerenergieundeventtechnik@gmail.com">Mail</a>
+</div>
+
+</div>
+
+<!-- SERVICE PAGE -->
+<div id="service" class="page section">
+
+<img src="logo.png" style="width:140px;margin-bottom:15px;">
+
+<h2>Montage & Hausmeisterservice / Photovoltaik</h2>
+
+<p class="sub">
+<strong>Zuverlässiger Service für Ihr Zuhause – von der Solaranlage bis zum Hausmeisterservice.</strong>
+
+<br><br>
+
+Ich unterstütze Montagearbeiten, hauptsächlich im Bereich Solaranlagen und Photovoltaik, im Auftrag von Firmen und helfe dabei, Projekte zuverlässig und sauber umzusetzen.
+
+<br><br>
+
+Im Bereich Hausmeisterservice bin ich selbstständig tätig und übernehme verschiedenste Aufgaben rund um Haus und Grundstück. Bei Interresse gerne Melden!
+</p>
+
+<div class="gallery service">
+<img src="img/service-1.jpg" onclick="openImg(this.src)">
+<img src="img/service-2.jpg" onclick="openImg(this.src)">
+<img src="img/service-3.jpg" onclick="openImg(this.src)">
+<img src="img/service-4.jpg" onclick="openImg(this.src)">
+<img src="img/service-5.jpg" onclick="openImg(this.src)">
+</div>
+
+<div class="contact">
+<p>📍 Garmisch-Partenkirchen</p>
+<p>📞 +49 171 6809692</p>
+<p>📧 bergerenergieundeventtechnik@gmail.com</p>
+
+<a class="btn" href="tel:+491716809692">Anrufen</a>
+<a class="btn" href="https://wa.me/491716809692">WhatsApp</a>
+<a class="btn" href="mailto:bergerenergieundeventtechnik@gmail.com">Mail</a>
+</div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeImg()">
+<img id="lightboxImg">
+</div>
+
+<script>
+function openPage(id){
+    document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function openImg(src){
+    document.getElementById("lightbox").style.display="flex";
+    document.getElementById("lightboxImg").src=src;
+}
+
+function closeImg(){
+    document.getElementById("lightbox").style.display="none";
+}
+</script>
+
+</body>
+</html>
+
